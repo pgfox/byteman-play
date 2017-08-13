@@ -1,0 +1,6 @@
+RULE trace TransportConnection.service calls
+CLASS org.apache.activemq.broker.TransportConnection
+METHOD service
+IF true
+DO traceln("*** transportConnection.service() called with command : " + $1)
+ENDRULE
