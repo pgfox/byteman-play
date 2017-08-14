@@ -1,0 +1,6 @@
+RULE trace PostOfficeImpl.route calls
+CLASS org.apache.activemq.artemis.core.postoffice.impl.PostOfficeImpl
+METHOD route
+IF true
+DO traceln("*** PostOfficeImpl.route called with command : " + $1)
+ENDRULE
