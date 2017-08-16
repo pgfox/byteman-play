@@ -1,0 +1,8 @@
+RULE log exception from a method
+CLASS com.acme.DebuggerTest
+METHOD doit()
+AT EXCEPTION EXIT
+IF true
+DO traceln("*** Exception is :" + $^);
+   traceStack(" *** Stack trace: \n"  );
+ENDRULE
