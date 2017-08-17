@@ -1,0 +1,7 @@
+RULE inject an exception at method1
+CLASS com.acme.samples.ExceptionInjectSample
+METHOD method1
+AT ENTRY
+IF TRUE
+DO THROW new RuntimeException("ByteMan sample exception");
+ENDRULE
