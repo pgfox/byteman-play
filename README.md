@@ -22,3 +22,11 @@ simple byteman example scripts
     gets a handler to the crosscut object and invokes a method on that object
 
     java  -javaagent:${BYTEMAN_HOME}/lib/byteman.jar=script:./scripts/custom_helper.btm -cp target/byteman-play-1.0-SNAPSHOT.jar com.acme.samples.ExceptionInjectSample
+
+
+- script/log_to_file
+    write logs to a file relative to where JVM started ( the files can also be absolute path)
+    add a date timestamp to the log entry
+
+    java  -javaagent:${BYTEMAN_HOME}/lib/byteman.jar=script:./scripts/log_to_file.btm -cp target/byteman-play-1.0-SNAPSHOT.jar com.acme.samples.ExceptionInjectSample
+    

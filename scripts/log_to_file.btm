@@ -1,0 +1,10 @@
+RULE trace to file
+CLASS com.acme.samples.ExceptionInjectSample
+METHOD method1
+BIND targetObject = $0
+AT ENTRY
+IF TRUE
+DO  openTrace("log1","./byteman-log-sample.log");
+traceln("log1"," "+new java.util.Date() +"::method1 called");
+closeTrace("log1")
+ENDRULE
