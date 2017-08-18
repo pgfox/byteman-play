@@ -16,3 +16,9 @@ simple byteman example scripts
    throws an execption when a specific method is called.
 
     java  -javaagent:${BYTEMAN_HOME}/lib/byteman.jar=script:./scripts/inject_exception.btm -cp target/byteman-play-1.0-SNAPSHOT.jar com.acme.samples.ExceptionInjectSample
+
+- script/custom_helper
+    uses a customer helper method
+    gets a handler to the crosscut object and invokes a method on that object
+
+    java  -javaagent:${BYTEMAN_HOME}/lib/byteman.jar=script:./scripts/custom_helper.btm -cp target/byteman-play-1.0-SNAPSHOT.jar com.acme.samples.ExceptionInjectSample

@@ -1,0 +1,12 @@
+# used to exercise a custom helper and also taking the target object and resetting values dynamically
+
+
+RULE calling custom helper method
+CLASS com.acme.samples.ExceptionInjectSample
+METHOD method1
+HELPER com.acme.helper.SampleHelper
+BIND targetObject = $0
+AT ENTRY
+IF TRUE
+DO bang(targetObject);
+ENDRULE
