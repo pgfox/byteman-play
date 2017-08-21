@@ -1,0 +1,16 @@
+RULE counter example
+CLASS com.acme.samples.CounterSample
+METHOD method1
+AT ENTRY
+IF TRUE
+DO  incrementCounter("method1 invoke");
+ENDRULE
+
+
+RULE print counter
+CLASS  com.acme.samples.CounterSample
+METHOD method1
+AT EXIT
+IF (readCounter("method1 invoke") == 20)
+DO System.out.println("*** Counter is 20")
+ENDRULE

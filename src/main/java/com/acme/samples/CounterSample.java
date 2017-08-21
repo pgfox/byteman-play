@@ -3,9 +3,9 @@ package com.acme.samples;
 
 import org.apache.log4j.Logger;
 
-public class ExceptionInjectSample {
+public class CounterSample {
 
-    Logger logger = Logger.getLogger(ExceptionInjectSample.class);
+    Logger logger = Logger.getLogger(CounterSample.class);
     private String myId = "id1";
 
 
@@ -14,7 +14,7 @@ public class ExceptionInjectSample {
 
 
 
-        ExceptionInjectSample app = new ExceptionInjectSample();
+        CounterSample app = new CounterSample();
         app.doit();
 
 
@@ -22,15 +22,21 @@ public class ExceptionInjectSample {
 
     private void doit() throws Exception{
         logger.info("doit() called ");
-        method1();
+
+        for(int i = 0; i < 100 ; i++){
+            method1(i);
+        }
+
         logger.info("doit() finished, myid :"+getMyId());
 
     }
 
-    private void method1() throws Exception{
-        logger.info("method1() called.");
-        logger.info("method1() ended.");
-        
+    private void method1(int i) throws Exception{
+
+        if((i%10)==0) {
+            logger.info("method1(), i is now :" +i);
+        }
+
     }
 
     public String getMyId() {

@@ -29,4 +29,11 @@ simple byteman example scripts
     add a date timestamp to the log entry
 
     java  -javaagent:${BYTEMAN_HOME}/lib/byteman.jar=script:./scripts/log_to_file.btm -cp target/byteman-play-1.0-SNAPSHOT.jar com.acme.samples.ExceptionInjectSample
-    
+
+
+- script/counter.btm
+    uses 2 rules,
+    - one rule to increment the counter
+    - one rule to print out the counter when a condition is met
+
+    java  -javaagent:${BYTEMAN_HOME}/lib/byteman.jar=script:./scripts/counter.btm -cp target/byteman-play-1.0-SNAPSHOT.jar com.acme.samples.CounterSample
