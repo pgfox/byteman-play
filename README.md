@@ -37,3 +37,9 @@ simple byteman example scripts
     - one rule to print out the counter when a condition is met
 
     java  -javaagent:${BYTEMAN_HOME}/lib/byteman.jar=script:./scripts/counter.btm -cp target/byteman-play-1.0-SNAPSHOT.jar com.acme.samples.CounterSample
+
+
+- script/log_exception.btm
+    logs an exception stack trace using a helper class        
+
+    java -javaagent:${BYTEMAN_HOME}/lib/byteman.jar=script:./scripts/log_exception.btm -cp target/byteman-play-1.0-SNAPSHOT.jar  com.acme.samples.ExceptionThrowerSample
