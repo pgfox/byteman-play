@@ -22,4 +22,9 @@ public class SampleHelper extends Helper {
         obj.setMyId("bangID");
     }
 
+
+    public void exceptionStack(Throwable throwable){
+        throwable.printStackTrace(System.out);
+    }
+
 }

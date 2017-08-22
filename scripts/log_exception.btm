@@ -1,8 +1,10 @@
-RULE log exception from a method
-CLASS com.acme.DebuggerTest
+RULE log exception with stack 
+CLASS com.acme.samples.ExceptionThrowerSample
 METHOD doit()
+HELPER com.acme.helper.SampleHelper
 AT EXCEPTION EXIT
 IF true
 DO traceln("*** Exception is :" + $^);
-   traceStack(" *** Stack trace: \n"  );
+   exceptionStack($^);
+   traceln("*** Exception has been logged");
 ENDRULE
