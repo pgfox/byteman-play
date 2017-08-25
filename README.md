@@ -2,7 +2,7 @@
 
 to test a rule
 
-/apps/byteman-download-3.0.10/bin/bmcheck.sh -cp target/byteman-play-1.0-SNAPSHOT.jar ./scripts/inject_exception.btm
+${BYTEMAN_HOME}/bin/bmcheck.sh -cp target/byteman-play-1.0-SNAPSHOT.jar ./scripts/inject_exception.btm
 
 
 
@@ -43,3 +43,9 @@ simple byteman example scripts
     logs an exception stack trace using a helper class        
 
     java -javaagent:${BYTEMAN_HOME}/lib/byteman.jar=script:./scripts/log_exception.btm -cp target/byteman-play-1.0-SNAPSHOT.jar  com.acme.samples.ExceptionThrowerSample
+
+
+- script/waiter_threads
+    - creates an order between threads with thread_1 (with app id "thread_1") waiting for thread_2 to complete a method first
+
+    java -javaagent:${BYTEMAN_HOME}/lib/byteman.jar=script:./scripts/waiter_threads.btm -cp target/byteman-play-1.0-SNAPSHOT.jar com.acme.samples.ThreadSample

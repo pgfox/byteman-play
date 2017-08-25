@@ -1,0 +1,21 @@
+RULE wait for wakeup
+CLASS com.acme.samples.ThreadSample
+METHOD method1
+AT ENTRY
+BIND id:java.lang.String = $1
+IF id.equals("thread_1")
+DO traceln("****id is :" + $1 + "... going to sleep");
+   waitFor("X");
+   traceln("****" + $1 + " is now WOKE UP");
+ENDRULE
+
+
+RULE signal wakeup
+CLASS com.acme.samples.ThreadSample
+METHOD method1
+AT EXIT
+BIND id:java.lang.String = $1
+IF id.equals("thread_2")
+DO traceln("****id is :" + $1 +", about to signal other thread");
+   signalWake("X", true);
+ENDRULE
