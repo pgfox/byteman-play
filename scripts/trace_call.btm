@@ -1,0 +1,8 @@
+RULE trace call
+CLASS com.acme.samples.ThreadSample
+METHOD method1
+AT ENTRY
+IF TRUE
+DO  traceStack();
+ENDRULE
+

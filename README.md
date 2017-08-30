@@ -45,7 +45,12 @@ simple byteman example scripts
     java -javaagent:${BYTEMAN_HOME}/lib/byteman.jar=script:./scripts/log_exception.btm -cp target/byteman-play-1.0-SNAPSHOT.jar  com.acme.samples.ExceptionThrowerSample
 
 
-- script/waiter_threads
+- script/waiter_threads.btm
     - creates an order between threads with thread_1 (with app id "thread_1") waiting for thread_2 to complete a method first
 
     java -javaagent:${BYTEMAN_HOME}/lib/byteman.jar=script:./scripts/waiter_threads.btm -cp target/byteman-play-1.0-SNAPSHOT.jar com.acme.samples.ThreadSample
+
+- script/trace_call.btm
+    - prints a stack trace for the calling thread that triggers the rule
+
+    java -javaagent:${BYTEMAN_HOME}/lib/byteman.jar=script:./scripts/trace_call.btm -cp target/byteman-play-1.0-SNAPSHOT.jar com.acme.samples.ThreadSample
