@@ -1,0 +1,9 @@
+RULE add defaultExceptionHandler
+CLASS com.acme.samples.ThreadExceptionSample
+METHOD main
+HELPER com.acme.helper.DefaultExceptionHelper
+AT ENTRY
+IF TRUE
+DO  addDefaultExceptionHelper();
+ENDRULE
+

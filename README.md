@@ -54,3 +54,8 @@ simple byteman example scripts
     - prints a stack trace for the calling thread that triggers the rule
 
     java -javaagent:${BYTEMAN_HOME}/lib/byteman.jar=script:./scripts/trace_call.btm -cp target/byteman-play-1.0-SNAPSHOT.jar com.acme.samples.ThreadSample
+
+ - script/set_default_exception_handler.btm
+    - sample scription to set the DefaultExceptionHandler to print to System out
+
+    java -javaagent:${BYTEMAN_HOME}/lib/byteman.jar=script:./scripts/set_default_exception_handler.btm -cp target/byteman-play-1.0-SNAPSHOT.jar com.acme.samples.ThreadExceptionSample
