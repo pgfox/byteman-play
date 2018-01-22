@@ -5,6 +5,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
+import com.acme.samples.ParamTest;
 import com.acme.samples.SampleObject;
 import org.jboss.byteman.contrib.bmunit.BMRule;
 import org.jboss.byteman.contrib.bmunit.BMRules;
@@ -16,7 +17,6 @@ import org.junit.runner.RunWith;
 public class SampleByteManUnitTest  {
 
    static  CountDownLatch delayCalled;
-
 
    @Test
    @BMRules(rules = {@BMRule(
@@ -51,6 +51,26 @@ public class SampleByteManUnitTest  {
       }
    }
 
+
+   @Test
+   @BMRules(rules = {@BMRule(
+      name = "call print info",
+      targetClass = "com.acme.samples.ParamTest",
+      targetMethod = "method1",
+      targetLocation = "ENTRY",
+      action = "com.acme.SampleByteManUnitTest.printInfo($1)")})
+   public void testMethodParam() throws Exception {
+
+      final ParamTest paramTest = new ParamTest();
+
+      delayCalled = new CountDownLatch(1);
+
+      paramTest.method1("one","two");
+
+      paramTest.method1("one","two", "three", "four");
+
+   }
+
    //notify delay has been called and wait for X seconds
    public static void delay(int seconds) {
       System.out.println("#### Delay CALLED: " +Thread.currentThread().getName());
@@ -65,6 +85,11 @@ public class SampleByteManUnitTest  {
 
       System.out.println("#### Delay FINISHED: " +Thread.currentThread().getName());
 
+   }
+
+   //notify delay has been called and wait for X seconds
+   public static void printInfo(Object p1) {
+      System.out.println("#### PRINT INFO CALLED: " + p1);
    }
 
 
